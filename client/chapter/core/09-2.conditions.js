@@ -55,14 +55,21 @@ let whichTruthy = false || '' || [2,3].length || {thisIsTruthy:true};
 
 
 /* -------------------------------------------------------------------------- */
-let userName = prompt('누구세요?');
 
-if(userName?.toLowerCase() === 'admin'){
+
+function login(){
+  let userName = prompt('누구세요?');
+
+  //userName이 ull, undefined =>아래코드 실행 안함
+  if(userName === null || undefined ) return;
+
+  if(userName.toLowerCase() === 'admin'){
   
   let password = prompt('비밀번호는?');
 
-  if(password?.toLowerCase() === 'themaster'){
+  if(password.toLowerCase() === 'themaster'){
     console.log('환영합니다~~!! 짝짝');
+    //?를 붙이지 않으면 null이 toLowerCase로 들어가기때문에 ?옵셔널체인징을 넣어줘야한다!
 
   }else if(password === null){
     console.log('취소');
@@ -71,14 +78,52 @@ if(userName?.toLowerCase() === 'admin'){
     console.log('비밀번호를 잘못 입력하셨습니다');
   }
 
-}else if(userName === null || userName?.replace(/\s*/g,'') === ''){
-  console.log('취소');
+  }else if(userName === null || userName?.replace(/\s*/g,'') === ''){
+    console.log('취소');
 //replace()는 (문자의 메서드) 찾고 뒤에껄로 바꿔라 'hello.replace('h','p')->pello
 
 //.toLowerCase() 전부 다 소문자로 나옴
 
-}else{
-  console.log('실패!');
+  }else{
+    console.log('실패!');
 
+  }
 }
 
+
+
+
+
+
+
+/* -------------------------------------------------------------------------- */
+// let userName = prompt('누구세요?');
+
+//   //userName이 ull, undefined =>아래코드 실행 안함
+//   return
+
+//   if(userName?.toLowerCase() === 'admin'){
+  
+//   let password = prompt('비밀번호는?');
+
+//   if(password?.toLowerCase() === 'themaster'){
+//     console.log('환영합니다~~!! 짝짝');
+//     //?를 붙이지 않으면 null이 toLowerCase로 들어가기때문에 ?옵셔널체인징을 넣어줘야한다!
+
+//   }else if(password === null){
+//     console.log('취소');
+
+//   }else{
+//     console.log('비밀번호를 잘못 입력하셨습니다');
+//   }
+
+//   }else if(userName === null || userName?.replace(/\s*/g,'') === ''){
+//     console.log('취소');
+// replace()는 (문자의 메서드) 찾고 뒤에껄로 바꿔라 'hello.replace('h','p')->pello
+
+// .toLowerCase() 전부 다 소문자로 나옴
+
+//   }else{
+//     console.log('실패!');
+
+//   }
