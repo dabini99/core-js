@@ -63,36 +63,65 @@
 
 
 
-  let first = document.querySelector('.first');
+// let first = document.querySelector('.first');
 
 
 
-  // do{
-    
-  //   first = first.nextSibling;
+// do{
   
-  // }while(first.nodeType !== 1)
+//   first = first.nextSibling;
+
+// }while(first.nodeType !== 1)
+
+
   
+
+  const first = document.querySelector('.first');
+
   
+
+  function next(node){
+
+    if(typeof node === 'string') node = document.querySelector(node)
+
+    // validation -> 확인
+
+    do{
+
+      node = node.nextSibling;
+
+    }while(node.nodeType !== 1)
+
+    return node
+
+  }
   
-    function next(node){
-  
-      do{
-        
-        node = node.nextSibling;
-  
-      }while(node.nodeType !== 1)
-  
-      return node
+
+  const second = next('.first') // .second
+
+
+
+  function prev(node){
+
+    if(typeof node ==='string'){
+      node = document.querySelector(node);
     }
-    
-  
-  
-    const second = next(first) // .second
-  
-  
-  
-  
-  // second
-  
-  // first의 다음 요소 선택 => .second
+
+    do{
+      
+      node = node.previousSibling;
+
+    }while(node.nodeType !== 1)
+//1은 엘리먼트 노드
+    return node
+
+  }
+
+  const prevoius = prev('.second') // .first
+
+
+
+
+// second
+
+// first의 다음 요소 선택 => .second
