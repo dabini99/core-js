@@ -43,7 +43,7 @@ const result = calcPrice(1000,3000)  //인수1000,3000 //D는 undefined여서 �
 // 1. 함수의 이름 잘 짓기(동사인 접두어) / 가독성이 좋다 => 읽었을 때 바로 기능을 알 수 있는 형태로!
 // 2. 전역의 오염을 막는다
 // 3. 하나의 기능만을 수행해야 한다
-// 4. 재사용성이 좋아야한다
+// 4. 재사용성이 좋아야한다(매개변수를 잘 활용 해야한다 => 유연한 함수)
 
 
 /* 다음 함수를 작성해봅니다. -------------------------------------------------- */
@@ -56,7 +56,7 @@ const result = calcPrice(1000,3000)  //인수1000,3000 //D는 undefined여서 �
 
 // }
 //쌤이 해준거
-function rem(pxValue,base = 16){
+function rem(pxValue = 0 ,base = 16){
 
     if(!pxValue){
       throw new Error('rem 함수의 첫 번째 인수는 필수 입력 값 입니다');
@@ -153,7 +153,7 @@ function setStyle(node, prop, value){
 
 setStyle('.first','color','blue')
 
-
+//setStyle undefined가 반환된다 -> return이 없기 때문에 그치만 세팅의 의미를 가지고 있는 함수는 대체로 값을 반환하지 않음
 
 // node의 값을 'h1'으로 받았을 경우 
 
