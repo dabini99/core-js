@@ -155,6 +155,62 @@ setStyle('.first','color','blue')
 
 //setStyle undefined가 반환된다 -> return이 없기 때문에 그치만 세팅의 의미를 가지고 있는 함수는 대체로 값을 반환하지 않음
 
+function getStyle(node, prop){
+
+  if(typeof node === 'string') node = document.querySelector(node);
+
+  if(typeof prop !== 'string') throw new Error('getStyle 함수의 두 번째 인수는 문자 타입 이어야 합니다.');
+
+  return getComputedStyle(node)[prop]
+}
+
+getStyle('.first','fontSize') //32px 문자에 넣는 건 말이 안됨 그래서 if(typeof node === 'string') node = document.querySelector(node);넣어줌
+
+/* 함수를 만들 떄
+1. 함수의 이름 부터 만들기
+2. argument 함수의 실행부를 먼저 작성해보기
+3. parameter를 설정하기 좋음
+4. 값을 어떤 걸 리턴 할 것인지
+5. validation을 하는 거임
+6. test Driven Development
+*/ 
+
+function css(node,prop,value){
+
+  // if(!value){
+  //   //getter
+  //   return getStyle(node,prop) //내뱉어진 함수를 다시 내 뱉어야해서 return이 필요하다
+  // }else{
+  //   //setter
+  //   setStyle(node,prop,value) //아무것도 안한다 값을 반환하지만 undefined를 반환한다
+  // }
+
+  //condition ? value1 : value2
+  return !value ? getStyle(node,prop)  : setStyle(node,prop,value); //겟은 실제 값을 반환 셋은 언디파인드를 반환 3항식에 의해서 css가 반환을 한다
+}
+
+
+css('.first', 'color', 'red') //setter  설정하는 애냐 value가 있냐 없냐에 따라 설정, 가져오는 거
+
+css('.first','color') //getter  가져오는 애냐
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // node의 값을 'h1'으로 받았을 경우 
 
 // node가 없거나 document.ELEMENT_NODE가 아닐 경우
