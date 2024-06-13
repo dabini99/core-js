@@ -64,36 +64,59 @@ function checkBrowser(){
 
 }
 
-
-
 checkBrowser() // chrome
 
 
+let lastIndexOf = message.lastIndexOf('s'); //6 순서는 앞에서부터 찾고 반환해준다 (뒤에서부터 찾지만 반환은 앞에서 한다)
+let includes = message.includes('Less');
+let startsWith = message.startsWith('less'); //해당 단어로 문자가 시작하니? //false 왜냐면 소문자이기 때문에
+let endsWith = message.endsWith('more.'); //more.로 끝나?
 
-
-
-
-let lastIndexOf = message.lastIndexOf();
-let includes;
-let startsWith;
-let endsWith;
-
+let str = '     a    b    c                 d         '
 
 // 공백 잘라내기
-let trimLeft;
-let trimRight;
-let trim;
+let trimStart = str.trimStart();
+console.log('trimStart : ',trimStart)
+
+
+let trimEnd = str.trimEnd();
+console.log('trimEnd : ',trimEnd)
+
+let trim = str.trim();
+console.log('trim : ',trim)
+
+const replaceAll = str.replaceAll(' ',''); //좌변의 값을 찾아서 우변의 쪽으로 바꿔줘 ,,모든 곳을 다 찾아서
+const replac = str.replace(/\s*/g,'')  //정규식
+
+
+// const trimText = string => string.replaceAll(' ','');
+
+
+function trimText(string){
+
+  return string.replaceAll(' ','');
+}
+
+
+trimText(str) //abcd
+
 
 
 // 텍스트 반복
-let repeat;
+let repeat = message.repeat(3);
 
 
 // 대소문자 변환
-let toLowerCase;
-let toUpperCase;
+let toLowerCase = message.toLowerCase();
+let toUpperCase = message.toUpperCase();
 
 
 // 텍스트 이름 변환 유틸리티 함수
-let toCamelCase;
-let toPascalCase;
+function toCamelCase(string) {
+  return string.replace(/(\s|-|_)+./g, ($1) => $1.trim().replace(/(-|_)+/, '').toUpperCase())
+}
+
+function toPascalCase(string) {
+  let name = toCamelCase(string);
+  return name[0].toUpperCase() + name.slice(1);
+}
