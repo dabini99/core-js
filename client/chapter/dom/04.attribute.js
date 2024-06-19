@@ -26,25 +26,22 @@
 
 const first = getNode('.first');
 
-console.log(first.hasAttribute('class'));
-
-
+console.log( first.hasAttribute('id') );
 
 
 // - elementNode.getAttribute(name) – 속성값을 가져옴
-console.log(first.getAttribute('sayHi'));
+console.log( first.getAttribute('data-value') );
 
 
 // - elementNode.setAttribute(name, value) – 속성값을 변경함
 first.setAttribute('id','tiger')
 
-
-
 // - elementNode.removeAttribute(name) – 속성값을 지움
 first.removeAttribute('id')
 
 // - elementNode.attributes – 열거 가능한(iterable) 속성 집합을 반환함
-console.log(first.attributes);
+console.log( first.attributes );
+// [Symbol.iterator]().next().value 
 
 /* 비표준 속성, 프로퍼티 설정 ------------------------------------------------- */
 
@@ -54,9 +51,10 @@ console.log(first.attributes);
 // - elementNode.dataset
 
 
-// first.dataset.name = 'kimnunu'
-// console.log(first.dataset);
+first.dataset.name = 'seonbeom' // setter
+console.log( first.dataset.value );
 
-// console.log(first.getAttribute('data-name'));
+console.log( first.getAttribute('data-name') );
 
-
+// first.removeAttribute('sayHi')
+// first.setAttribute('class','')

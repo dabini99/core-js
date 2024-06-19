@@ -46,41 +46,44 @@
 // - nodeName (vs. tagName)
 
 
-
 const first = getNode('.first');
 
-console.log(first.nodeType === document.ELEMENT_NODE);
-console.log(first.nodeName);
-console.log(first.tageName); //tag들만 나오고 나머지는 언디파인드가 나온다
+console.log( first.nodeType === document.ELEMENT_NODE );
 
-if(first.tageName === 'SPAN'){
-  //이런식으로 사용이 된다아
+console.log( first.nodeName );
+
+
+if(first.tagName === 'SPAN'){
+  // condition
 }
 
 /* 노드 콘텐츠 읽기/쓰기 ---------------------------------------------------- */
 
 // - innerHTML
+
+first.innerHTML += '멋쟁이 사자처럼'
+
 // * 기존 내용 삭제
-// * 기존 내용과 새로운 내용을 합친 새로운 내용을 씀
-first.innerHTML = '멋쟁이 사자처럼'
 
 // first.innerHTML = ''
-
+// * 기존 내용과 새로운 내용을 합친 새로운 내용을 씀
 
 // - textContent
+
+first.textContent = '30% 파격 세일' // setter
+
+first.textContent  // getter
+
+
 // * 요소 내의 텍스트에 접근
-// * 태그는 제외하고 오로지 텍스트만 추출 
-first.textContent = '안녕멋쟁이'  //setter
-first.textContent //getter
+// * 태그는 제외하고 오로지 텍스트만 추출
 
 
-/* hidden -------------------------------------------------------------- */
 
-// - hidden
-// * hidden은 HTML 속성으로, DOM 프로퍼티로 사용 가능
-// * hidden 프로퍼티는 기술적으로 style="display:none"와 동일
 
-// console.log(first.hidden = true);
+// console.log( first.hidden = true );
+
+
 
 // let toggle = false;
 
@@ -89,12 +92,41 @@ first.textContent //getter
 //   toggle = !toggle;
 // }, 500);
 
+
+
+
 gsap.to('h1',{
-  autoAlpha: 0,
+  opacity:0,
   duration:0.5,
   repeat: -1,
-  yoyo:true,
+  yoyo:true
 })
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* hidden -------------------------------------------------------------- */
+
+// - hidden
+// * hidden은 HTML 속성으로, DOM 프로퍼티로 사용 가능
+// * hidden 프로퍼티는 기술적으로 style="display:none"와 동일
