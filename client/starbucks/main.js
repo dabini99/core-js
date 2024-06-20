@@ -18,7 +18,6 @@ aList.forEach((a)=>{
     // 모든 depth 높이를 0 
     depthList.forEach(h)
 
-
     target.style.height = '100px';
 
   })
