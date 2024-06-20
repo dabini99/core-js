@@ -5,10 +5,10 @@ function getNode(node,context = document){
 
   if(context.nodeType !== 9) context = document.querySelector(context);
 
-  return document.querySelector(node)
+  return context.querySelector(node)
 
 }
-getNode('.list')
+getNode('.first')
 
 function getNodes(node,context = document){
   if(context.nodeType !== 9) context = document.querySelector(context);
