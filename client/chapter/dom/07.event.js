@@ -99,7 +99,10 @@ ground.addEventListener('mousemove',debounce(handleMove))
 
 
 
-
+// addClass('.ground',['a','b','c'])
+// addClass('.ground','a','b','c')
+// addClass('.ground','a,b,c')
+// addClass('.ground',{a:'one',b:'two'})
 
 
 

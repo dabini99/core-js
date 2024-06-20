@@ -8,6 +8,10 @@ function addClass(node,...className){
 
   className.forEach((c)=>{
     
+    if(isObject(c)) c = Object.values(c) 
+    
+    if(c.includes(',')) c = c.replace(/\s*/g,'').split(',')
+    
     if(isArray(c)){
       c.forEach( c => node.classList.add(c))
     }
@@ -17,8 +21,9 @@ function addClass(node,...className){
     else{
       throw new TypeError('addClass 함수의 인수는 문자 타입 이어야 합니다.');
     }
-
   })
+    
+}
     
   
 
