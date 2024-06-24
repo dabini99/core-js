@@ -1,11 +1,23 @@
+import { getNode } from "./getNode.js";
+import { isString, isObject, isArray } from "../utils/type.js";
 
-/* --------------------------------Class--------------------------------------- */
 
-function addClass(node,...className){
+/* -------------------------------------------- */
+/*                     class                    */
+/* -------------------------------------------- */
+
+
+/**
+ * 
+ * @param {HTMLElement | string} node 
+ * @param  {string | array | object} className 
+ * @returns {void}
+ */
+
+export function addClass(node,...className){
 
   if(typeof node === 'string') node = document.querySelector(node)
   
-
   className.forEach((c)=>{
     
     if(isObject(c)) c = Object.values(c) 
@@ -24,23 +36,8 @@ function addClass(node,...className){
   })
     
 }
-    
-  
 
-  // if(isArray(className)){
-  //   console.log(className);
-  //   className.forEach( c => node.classList.add(c))
-  //   return;
-  // }
-    
-  // if(typeof className !== 'string'){
-  //   throw new TypeError('addClass 함수의 두 번째 인수는 문자 타입 이어야 합니다.');
-  // }
-  // node.classList.add(className);
-// }
-
-
-function removeClass(node,className){
+export function removeClass(node,className){
 
   if(typeof node === 'string') node = document.querySelector(node)
 
@@ -56,8 +53,7 @@ function removeClass(node,className){
   node.classList.remove(className);
 }
 
-
-function toggleClass(node,className){
+export function toggleClass(node,className){
   if(typeof node === 'string') node = document.querySelector(node)
 
   if(typeof className !== 'string'){
@@ -67,7 +63,12 @@ function toggleClass(node,className){
   return node.classList.toggle(className);
 }
 
-/* --------------------------------Style-------------------------------------- */
+
+
+
+/* -------------------------------------------- */
+/*                     style                    */
+/* -------------------------------------------- */
 
 
 function getStyle(node,prop){
@@ -94,4 +95,13 @@ function setStyle(node,prop,value){
   
 }
 
-const css = (node,prop,value) => !value ? getStyle(node,prop) : setStyle(node,prop,value);
+export const css = (node,prop,value) => !value ? getStyle(node,prop) : setStyle(node,prop,value);
+
+
+
+
+
+
+
+
+
